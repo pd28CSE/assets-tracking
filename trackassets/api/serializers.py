@@ -20,10 +20,11 @@ class CompanySerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(max_length=50)
     last_name = serializers.CharField(max_length=50)
+    password = serializers.CharField(write_only=True)
 
     class Meta:
         model = User
-        fields = '__all__'
+        exclude = ['last_login', 'is_superuser', 'is_staff', 'is_active', 'groups', 'user_permissions']
 
 
     def create(self, validated_data):
