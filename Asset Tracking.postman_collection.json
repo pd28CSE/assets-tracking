@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "4da1ec46-36c9-401e-8a89-0193a76db4c1",
+		"name": "AssetTracking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16365646",
+		"_collection_link": "https://web.postman.co/workspace/Team-Workspace~535ce1bb-50af-4686-88da-f2acf7fd88cd/collection/16365646-4da1ec46-36c9-401e-8a89-0193a76db4c1?action=share&source=collection_link&creator=16365646"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}/user-login/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"user-login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Company",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/create-user/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"create-user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin10\",\r\n    \"password\": \"123\",\r\n    \"first_name\": \"Mr. \",\r\n    \"last_name\": \"Admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/create-user/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"create-user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hire employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee\":[1,3 ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/hire-employee/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"hire-employee",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add asset in company",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetsName\":  [\"mobile 5\", \"Mobile 6\", \"Mobile 7\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/add-asset/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"add-asset",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "provide asset to employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"qualityWhenProvided\": \"Good\",\r\n    \"employee\": 1,\r\n    \"asset\": 5,\r\n    \"returnDate\": \"2025-08-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/provide-asset-to-employee/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"provide-asset-to-employee",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "returned asset to company",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"qualityWhenReturn\": \"No damage\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/returned-asset-to-company/7/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"returned-asset-to-company",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "asset tracking",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/assest-tarcking/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"assest-tarcking",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "Token",
+			"value": "871174729d07055195175e24942cdd565f538ab7",
+			"type": "string"
+		}
+	]
+}
